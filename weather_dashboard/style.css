@@ -1,0 +1,28 @@
+body {
+    background: linear-gradient(to bottom, #1e3c72, #2a5298);
+    min-height: 100vh;
+}
+
+/* Ensure main content takes up available space */
+main {
+    flex-grow: 1;
+}
+
+/* Custom hover effects for buttons */
+button:hover {
+    transform: scale(1.05);
+}
+
+/* Style for city name */
+.city-name {
+    color: #ffffff;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+    .container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+}
