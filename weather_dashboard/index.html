@@ -9,21 +9,21 @@
     <!-- Link to custom CSS -->
     <link rel="stylesheet" href="styles.css">
 </head>
-<body class="flex flex-col min-h-screen text-white font-sans">
+<body class="flex flex-col min-h-screen text-white font-sans bg-gradient-to-b from-blue-900 to-blue-600">
     <!-- Header -->
     <header class="bg-blue-900 bg-opacity-80 backdrop-blur-md py-4 shadow-md">
         <div class="container mx-auto px-4 flex justify-between items-center">
             <h1 class="text-2xl font-bold">Weather Dashboard</h1>
-            <nav>
-                <a href="#" class="text-gray-300 hover:text-white px-3">Home</a>
-                <a href="https://openweathermap.org/" target="_blank" class="text-gray-300 hover:text-white px-3">API Source</a>
+            <nav class="space-x-4">
+                <a href="#" class="text-gray-300 hover:text-white">Home</a>
+                <a href="https://openweathermap.org/" target="_blank" class="text-gray-300 hover:text-white">API Source</a>
             </nav>
         </div>
     </header>
 
     <!-- Main Content -->
     <main class="flex-grow flex items-center justify-center">
-        <div class="bg-white bg-opacity-10 backdrop-blur-md rounded-xl shadow-xl p-8 max-w-md w-full mx-4">
+        <div class="bg-white bg-opacity-10 backdrop-blur-md rounded-xl shadow-xl p-6 sm:p-8 max-w-md w-full mx-4">
             <!-- Search and Refresh -->
             <div class="flex flex-col sm:flex-row gap-4 mb-6">
                 <div class="flex flex-1">
@@ -35,24 +35,24 @@
 
             <!-- Weather Display -->
             <div id="weatherInfo" class="hidden text-center">
-                <h2 id="cityName" class="text-2xl font-semibold mb-2 city-name"></h2>
-                <img id="weatherIcon" class="mx-auto mb-4 w-24 h-24" alt="Weather Icon">
-                <p id="temperature" class="text-xl mb-2"></p>
-                <p id="humidity" class="text-lg mb-2"></p>
-                <p id="windSpeed" class="text-lg mb-2"></p>
-                <p id="description" class="text-md italic"></p>
-                <p id="lastUpdated" class="text-sm text-gray-300 mt-4"></p>
+                <h2 id="cityName" class="text-2xl sm:text-3xl font-semibold mb-2 city-name"></h2>
+                <img id="weatherIcon" class="mx-auto mb-4 w-16 h-16 sm:w-24 sm:h-24" alt="Weather Icon">
+                <p id="temperature" class="text-lg sm:text-xl mb-2"></p>
+                <p id="humidity" class="text-base sm:text-lg mb-2"></p>
+                <p id="windSpeed" class="text-base sm:text-lg mb-2"></p>
+                <p id="description" class="text-sm sm:text-md italic"></p>
+                <p id="lastUpdated" class="text-xs sm:text-sm text-gray-300 mt-4"></p>
             </div>
 
             <!-- Error Message -->
-            <p id="errorMessage" class="text-red-300 text-center hidden"></p>
+            <p id="errorMessage" class="text-red-300 text-center text-sm sm:text-base hidden"></p>
         </div>
     </main>
 
     <!-- Footer -->
     <footer class="bg-blue-900 bg-opacity-80 backdrop-blur-md py-4">
         <div class="container mx-auto px-4 text-center">
-            <p class="text-gray-300">Powered by <a href="https://openweathermap.org/" target="_blank" class="text-white hover:underline">OpenWeatherMap</a> | Built with ❤️ by Frontend Dev</p>
+            <p class="text-gray-300 text-sm sm:text-base">Powered by <a href="https://openweathermap.org/" target="_blank" class="text-white hover:underline">OpenWeatherMap</a> | Built by Ali Sena Danishwer</p>
         </div>
     </footer>
 
