@@ -1,4 +1,4 @@
-const API_KEY = 'b0af5c4ff48c65072edd794f02334f01'; // Use your valid OpenWeatherMap API key
+const API_KEY = 'b0af5c4ff48c65072edd794f02334f01'; // Your OpenWeatherMap API key
 const UPDATE_INTERVAL = 5 * 60 * 1000; // 5 minutes
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const windSpeed = document.getElementById('windSpeed');
     const description = document.getElementById('description');
     const lastUpdated = document.getElementById('lastUpdated');
+    const flag = document.getElementById('flag'); // ✅ Flag element
 
     let currentCity = 'London'; // Default city
     let autoUpdateInterval = null;
@@ -22,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
         try {
             const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(city)}&appid=${API_KEY}&units=metric`;
             console.log('Fetching:', apiUrl);
-            
+
             const response = await fetch(apiUrl);
             console.log('Response status:', response.status);
 
@@ -43,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 throw new Error('No weather information found');
             }
 
-            // Update UI
+            // ✅ Update UI
             const cityDisplay = `${data.name}, ${data.sys.country}`;
             cityName.textContent = cityDisplay;
             weatherIcon.src = `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
@@ -53,6 +54,11 @@ document.addEventListener('DOMContentLoaded', () => {
             windSpeed.textContent = `Wind Speed: ${data.wind.speed} m/s`;
             description.textContent = data.weather[0].description;
             lastUpdated.textContent = `Last updated: ${new Date().toLocaleString('en-US', { timeZone: 'Asia/Singapore' })}`;
+
+            // ✅ Show flag
+            const countryCode = data.sys.country.toLowerCase(); // e.g., "us"
+            flag.src = `https://flagcdn.com/64x48/${countryCode}.png`;
+            flag.alt = `${data.sys.country} Flag`;
 
             weatherInfo.classList.remove('hidden');
             errorMessage.classList.add('hidden');

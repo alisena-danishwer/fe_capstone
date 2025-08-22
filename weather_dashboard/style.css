@@ -53,11 +53,22 @@ button:hover {
 @media (min-width: 641px) {
     header nav {
         display: flex;
-        space-x-4;
+        gap: 1rem; /* spacing between nav links */
     }
 
     #weatherInfo img {
         width: 24px;
         height: 24px;
     }
+}
+
+/* Header layout */
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header nav {
+    margin: 0 auto; /* centers nav */
 }
