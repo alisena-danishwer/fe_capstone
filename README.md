@@ -1,6 +1,4 @@
-Perfect! Here’s the **updated README** with a **Screenshot section** added. I included a placeholder image—you can replace it with your actual dashboard screenshot later.
 
----
 
 # 🌤️ Weather Dashboard
 
@@ -146,6 +144,5 @@ This project is **MIT Licensed** — feel free to use, modify, or distribute.
 
 ---
 
-If you want, I can **also suggest a layout for multiple screenshots** (mobile + desktop) so your GitHub README looks professional and visually appealing.
-
-Do you want me to do that?
+Regards
+Ali Sena Danishwer
