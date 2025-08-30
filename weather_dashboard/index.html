@@ -1,68 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather Dashboard</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Link to custom CSS -->
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Weather Dashboard</title>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Link to external CSS -->
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body class="flex flex-col min-h-screen text-white font-sans bg-gradient-to-b from-blue-900 to-blue-600">
-    <!-- Header -->
-<header class="bg-blue-900 bg-opacity-80 backdrop-blur-md py-4 shadow-md">
-  <div class="container mx-auto px-4 flex items-center relative">
-    <!-- Title stays on the left -->
-    <h1 class="text-2xl font-bold absolute left-4">Weather Dashboard</h1>
-    
-    <!-- Nav centered -->
-    <nav class="mx-auto flex space-x-6">
-      <a href="#" class="text-gray-300 hover:text-white">Home</a>
-      <a href="https://openweathermap.org/" target="_blank" class="text-gray-300 hover:text-white">API Source</a>
-    </nav>
-  </div>
-</header>
 
-    <!-- Main Content -->
-    <main class="flex-grow flex items-center justify-center">
-        <div class="bg-white bg-opacity-10 backdrop-blur-md rounded-xl shadow-xl p-6 sm:p-8 max-w-md w-full mx-4">
-            <!-- Search and Refresh -->
-            <div class="flex flex-col sm:flex-row gap-4 mb-6">
-                <div class="flex flex-1">
-                    <input type="text" id="cityInput" placeholder="Enter city name" class="flex-1 p-3 rounded-l-lg bg-white bg-opacity-20 text-white placeholder-gray-300 focus:outline-none">
-                    <button id="searchBtn" class="bg-blue-600 hover:bg-blue-700 p-3 rounded-r-lg transition">Search</button>
-                </div>
-                <button id="refreshBtn" class="bg-green-600 hover:bg-green-700 p-3 rounded-lg transition">Refresh</button>
-            </div>
+  <!-- Header -->
+  <header class="bg-blue-900 bg-opacity-80 backdrop-blur-md py-4 shadow-md relative z-50">
+    <div class="container mx-auto px-4 flex items-center justify-between">
+      <h1 class="text-xl sm:text-2xl font-bold">Weather Dashboard</h1>
 
-            <!-- Weather Display -->
-            <div id="weatherInfo" class="hidden text-center">
-                <h2 id="cityName" class="text-2xl sm:text-3xl font-semibold mb-2 city-name"></h2>
-                <img id="flag" class="mx-auto mb-4 w-12 h-8" alt="Country Flag">
-                <img id="weatherIcon" class="mx-auto mb-4 w-16 h-16 sm:w-24 sm:h-24" alt="Weather Icon">
-                <p id="temperature" class="text-lg sm:text-xl mb-2"></p>
-                <p id="humidity" class="text-base sm:text-lg mb-2"></p>
-                <p id="windSpeed" class="text-base sm:text-lg mb-2"></p>
-                <p id="description" class="text-sm sm:text-md italic"></p>
-                <p id="lastUpdated" class="text-xs sm:text-sm text-gray-300 mt-4"></p>
-            </div>
+      <!-- Hamburger (only on mobile) -->
+      <button id="menuToggle" class="sm:hidden text-gray-300 hover:text-white focus:outline-none">
+        <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2"
+             viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
 
-            <!-- Error Message -->
-            <p id="errorMessage" class="text-red-300 text-center text-sm sm:text-base hidden"></p>
+      <!-- Navigation -->
+       <nav id="navMenu" 
+       class="hidden flex-col sm:flex sm:flex-row sm:space-x-6 sm:space-y-0 space-y-2 absolute sm:static top-16 left-0 right-0 bg-blue-800 sm:bg-transparent items-center text-center sm:text-left">
+       <a href="#" class="block px-4 py-2 sm:p-0 text-gray-300 hover:text-white">Home</a>
+       <a href="https://openweathermap.org/" target="_blank" class="block px-4 py-2 sm:p-0 text-gray-300 hover:text-white">API Source</a>
+     </nav>
+
+    </div>
+  </header>
+
+  <!-- Main -->
+  <main class="flex-grow flex items-center justify-center">
+    <div class="bg-white bg-opacity-10 backdrop-blur-md rounded-xl shadow-xl p-6 sm:p-8 max-w-md w-full mx-4 mt-6 sm:mt-10">
+      <div class="flex flex-col sm:flex-row gap-4 mb-6">
+        <div class="flex flex-1">
+          <input type="text" id="cityInput" placeholder="Enter city name"
+                 class="flex-1 p-3 rounded-l-lg bg-white bg-opacity-20 text-white placeholder-gray-300 focus:outline-none">
+          <button id="searchBtn" class="bg-blue-600 hover:bg-blue-700 p-3 rounded-r-lg transition">Search</button>
         </div>
-    </main>
+        <button id="refreshBtn" class="bg-green-600 hover:bg-green-700 p-3 rounded-lg transition">Refresh</button>
+      </div>
 
-    <!-- Footer -->
-    <footer class="bg-blue-900 bg-opacity-80 backdrop-blur-md py-4">
-        <div class="container mx-auto px-4 text-center">
-            <p class="text-gray-300 text-sm sm:text-base">Built by: <a href="" target="_blank" class="text-white hover:underline"></a> Ali Sena Danishwer</p>
-        </div>
-    </footer>
+      <div id="weatherInfo" class="hidden text-center">
+        <h2 id="cityName" class="text-xl sm:text-2xl font-semibold mb-2 city-name"></h2>
+        <img id="flag" class="mx-auto mb-4 w-12 h-8" alt="Country Flag">
+        <img id="weatherIcon" class="mx-auto mb-4 w-16 h-16 sm:w-24 sm:h-24" alt="Weather Icon">
+        <p id="temperature" class="text-lg sm:text-xl mb-2"></p>
+        <p id="humidity" class="text-base sm:text-lg mb-2"></p>
+        <p id="windSpeed" class="text-base sm:text-lg mb-2"></p>
+        <p id="description" class="text-sm sm:text-md italic"></p>
+        <p id="lastUpdated" class="text-xs sm:text-sm text-gray-300 mt-4"></p>
+      </div>
 
-    <!-- Link to JavaScript -->
-    <script src="script.js"></script>
-    
+      <p id="errorMessage" class="text-red-300 text-center text-sm sm:text-base hidden"></p>
+    </div>
+  </main>
 
+  <!-- Footer -->
+  <footer class="bg-blue-900 bg-opacity-80 backdrop-blur-md py-4 mt-6">
+    <div class="container mx-auto px-4 text-center">
+      <p class="text-gray-300 text-sm sm:text-base">Built by: <a href="#" class="text-white hover:underline">Ali Sena Danishwer</a></p>
+    </div>
+  </footer>
+
+  <!-- JS for Menu Toggle -->
+  <script>
+    const menuToggle = document.getElementById('menuToggle');
+    const navMenu = document.getElementById('navMenu');
+
+    menuToggle.addEventListener('click', () => {
+      navMenu.classList.toggle('hidden');
+    });
+  </script>
+
+  <!-- External Weather JS -->
+  <script src="script.js"></script>
 </body>
 </html>

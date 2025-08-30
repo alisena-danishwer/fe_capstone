@@ -1,74 +1,59 @@
 body {
-    min-height: 100vh;
+  min-height: 100vh;
 }
 
-/* Ensure main content takes up available space */
-main {
-    flex-grow: 1;
-}
-
-/* Custom hover effects for buttons */
+/* Hover animation */
 button:hover {
-    transform: scale(1.05);
+  transform: scale(1.05);
 }
 
-/* Style for city name */
+/* City name style */
 .city-name {
-    color: #ffffff;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+  color: #ffffff;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
 }
 
-/* Style for the input field to make text visible */
+/* Input styles */
 #cityInput {
-    color: #ffffff;
-    background-color: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.2);
 }
 
-/* Ensure placeholder text is visible */
 #cityInput::placeholder {
-    color: #d1d5db;
+  color: #d1d5db;
 }
 
 /* Responsive adjustments */
 @media (max-width: 640px) {
-    .container {
-        padding-left: 1rem;
-        padding-right: 1rem;
-    }
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
 
-    header .text-2xl {
-        font-size: 1.5rem;
-    }
+  /* Mobile menu dropdown */
+  #navMenu {
+    position: absolute;
+    top: 64px; /* below header */
+    left: 0;
+    right: 0;
+    background-color: rgba(30, 64, 175, 0.95); /* blue-800 */
+    padding: 1rem 0;
+  }
 
-    nav {
-        display: none;
-    }
+  #navMenu a {
+    display: block;
+    padding: 0.5rem 0;
+  }
 
-    #weatherInfo img {
-        width: 16px;
-        height: 16px;
-    }
+  #weatherInfo img {
+    width: 16px;
+    height: 16px;
+  }
 }
 
 @media (min-width: 641px) {
-    header nav {
-        display: flex;
-        gap: 1rem; /* spacing between nav links */
-    }
-
-    #weatherInfo img {
-        width: 24px;
-        height: 24px;
-    }
-}
-
-/* Header layout */
-header .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-header nav {
-    margin: 0 auto; /* centers nav */
+  #weatherInfo img {
+    width: 24px;
+    height: 24px;
+  }
 }
