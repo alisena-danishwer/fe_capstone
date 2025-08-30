@@ -33,7 +33,7 @@ button:hover {
   /* Mobile menu dropdown */
   #navMenu {
     position: absolute;
-    top: 64px; /* below header */
+    top: 64 px; /* below header */
     left: 0;
     right: 0;
     background-color: rgba(30, 64, 175, 0.95); /* blue-800 */
